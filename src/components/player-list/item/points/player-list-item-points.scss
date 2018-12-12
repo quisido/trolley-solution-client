@@ -1,0 +1,35 @@
+@import "../../../../assets/theme";
+
+@keyframes player-list-item-points {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.player-list-item-points {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-name: player-list-item-points;
+  animation-timing-function: ease-in;
+  border-bottom-width: 0;
+  cursor: help;
+  font-size: 1rem;
+  opacity: 0;
+  position: absolute;
+  right: -0.75em;
+  text-align: right;
+  text-decoration: none;
+  text-shadow:
+    -1px -1px 1px $background,
+    -1px  1px 1px $background,
+      1px -1px 1px $background,
+      1px  1px 1px $background;
+  top: 0;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 1;
+}

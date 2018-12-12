@@ -5,24 +5,34 @@ import App from './components/app/app';
 import { unregister } from './service-worker';
 
 const colors = [
-  '7FFFD4', '98FB98', '00FF7F', 'C5EFF7', '00FFFF', 'FFECDB', 'DCC6E0', 'F1A9A0', 'DDA0DD', 'B2CCE5', 'FFFACD', 'F1F227', 'C9F227', 'F5D76E', 'F5AB35'
+  '7FFFD4', '98FB98', '00FF7F', 'C5EFF7', '00FFFF',
+  'FFECDB', 'DCC6E0', 'F1A9A0', 'DDA0DD', 'B2CCE5',
+  'FFFACD', 'F1F227', 'C9F227', 'F5D76E', 'F5AB35'
 ];
+
+while (colors.length > 3) {
+  colors.splice(Math.floor(Math.random() * colors.length), 1);
+}
 
 setGlobal({
   players: [
     {
       color: colors[0],
-      name: 'Ace'
+      name: 'Ace',
+      points: []
     },
     {
       color: colors[1],
-      name: 'Charles'
+      name: 'Charles',
+      points: []
     },
     {
       color: colors[2],
-      name: 'Scott'
+      name: 'Scott',
+      points: []
     }
-  ]
+  ],
+  started: true
 });
 
 ReactDOM.render(<App />, document.getElementById('root'));
