@@ -1,0 +1,13 @@
+@import "../../assets/theme";
+
+.header {
+  border-bottom: 2px solid $primary;
+  padding: 1em;
+
+  > h1 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 2rem;
+    line-height: 1em;
+    margin: 0;
+  }
+}
