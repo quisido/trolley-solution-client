@@ -4,6 +4,11 @@ import { setGlobal } from 'reactn';
 import App from './components/app/app';
 import { unregister } from './service-worker';
 
+setGlobal({
+  players: [],
+  started: true
+});
+
 const colors = [
   '7FFFD4', '98FB98', '00FF7F', 'C5EFF7', '00FFFF',
   'FFECDB', 'DCC6E0', 'F1A9A0', 'DDA0DD', 'B2CCE5',
@@ -14,26 +19,20 @@ while (colors.length > 3) {
   colors.splice(Math.floor(Math.random() * colors.length), 1);
 }
 
-setGlobal({
-  players: [
-    {
-      color: colors[0],
-      name: 'Ace',
-      points: []
-    },
-    {
-      color: colors[1],
-      name: 'Charles',
-      points: []
-    },
-    {
-      color: colors[2],
-      name: 'Scott',
-      points: []
-    }
-  ],
-  started: true
-});
+for (let x = 0; x < 3; x++) {
+  setTimeout(() => {
+    setGlobal(g => ({
+      players: [
+        ...g.players,
+        {
+          color: colors[x],
+          name: [ 'Ace', 'Charles', 'Scott' ][x],
+          points: []
+        }
+      ]
+    }));
+  }, x * 2500);
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
